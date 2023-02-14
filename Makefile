@@ -5,7 +5,6 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS =	push_swap.c			\
-		push_swap_utils.c	\
 		rules.c				\
 		input_check.c		\
 		init_stacks.c
