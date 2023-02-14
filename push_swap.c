@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:36:50 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/14 17:11:56 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/02/14 17:21:59 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,16 +54,22 @@ int	main(int ac, char **av)
 				while (lop-- > 0)
 				{
 					printstack(stacks);
-					push(stacks[1], stacks[0], "pb\n")
-					push(stacks[1], stacks[0], "pb\n")
-					push(stacks[1], stacks[0], "pb\n")
-					push(stacks[0], stacks[1], "pa\n")
-					printstack(stacks);
-					rotate(stacks, "ra");
-					rotate(stacks, "rb");
-					printstack(stacks);
-				}
 					push(stacks[1], stacks[0], "pb\n");
+					push(stacks[1], stacks[0], "pb\n");
+					push(stacks[1], stacks[0], "pb\n");
+					printstack(stacks);
+					push(stacks[0], stacks[1], "pa\n");
+					printstack(stacks);
+					rotate(stacks, "ra\n");
+					rotate(stacks, "rb\n");
+					printstack(stacks);
+					rrotate(stacks, "rra\n");
+					rrotate(stacks, "rrb\n");
+					printstack(stacks);
+					swap(stacks, "sa\n");
+					swap(stacks, "sb\n");
+					swap(stacks, "sb\n");
+				}
 						
 				// TESTTT
 			}
