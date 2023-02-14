@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:36:50 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/14 13:15:47 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/02/14 17:11:56 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,56 @@
 
 #include <stdio.h>
 
+void	printstack(int **st)
+{
+	int	i;
+
+	i = 1;
+	printf("\n-----A-----\n");
+	while (i <= st[0][0])
+	{
+		printf("%d\n", st[0][i]);
+		i++;
+	}
+	i = 1;
+	printf("\n-----B-----\n");
+	while (i <= st[1][0])
+	{
+		printf("%d\n", st[1][i]);
+		i++;
+	}
+}
 
 int	main(int ac, char **av)
 {
 	int	**stacks;
 
 	stacks = NULL;
-	if (1)//input_num_check(ac, av) && input_dup_check(ac, av))
+	if (input_num_check(ac, av) && input_dup_check(ac, av))
 	{
-		if (1)//input_num_range_check(ac, av))
+		if (input_num_range_check(ac, av))
 		{
-//			stacks = init_empty_stacks(ac);
-			if (1)//stacks)
+			stacks = init_empty_stacks(ac);
+			if (stacks)
 			{
-//(				stacks = init_num_stacks(ac, av, stacks);
-//				stacks = init_index_stacks(stacks);
+				stacks = init_num_stacks(ac, av, stacks);
+				stacks = init_index_stacks(stacks);
 				// TESSTTT
-//					printf ("\n---A---\n");
-//					printf ("%d\n%d\n%d\n%d\n", stacks[0][1], stacks[0][2], stacks[0][3], stacks[0][4]);
-//					swap(stacks, "sa\n");
+				int lop = 2;
+				while (lop-- > 0)
+				{
+					printstack(stacks);
+					push(stacks[1], stacks[0], "pb\n")
+					push(stacks[1], stacks[0], "pb\n")
+					push(stacks[1], stacks[0], "pb\n")
+					push(stacks[0], stacks[1], "pa\n")
+					printstack(stacks);
+					rotate(stacks, "ra");
+					rotate(stacks, "rb");
+					printstack(stacks);
+				}
+					push(stacks[1], stacks[0], "pb\n");
 						
-
-
 				// TESTTT
 			}
 		}
@@ -45,5 +73,4 @@ int	main(int ac, char **av)
 	}
 	else
 		write(1, "Error\n", 6);
-	printf("%s", av[ac - 1]);
 }

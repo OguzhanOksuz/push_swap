@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:36:58 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/14 13:11:41 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/02/14 16:52:12 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ int	**init_index_stacks_extension(int **stacks);
 int	**init_index_stacks(int **stacks);
 int	ft_atoi(char *str);
 void	swap(int **stacks, char *str);
-
+void	rotate(int **stacks, char *str);
+void	rrotate(int **stacks, char *str);
+void	push(int *dststacs, int *srcstack, char *str);
 #endif

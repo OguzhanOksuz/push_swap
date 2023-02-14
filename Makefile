@@ -10,12 +10,10 @@ SRCS =	push_swap.c			\
 		input_check.c		\
 		init_stacks.c
 
-OBJS = $(SRCS:.c=.o)
-
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar -rc $(NAME) $(OBJS)
+	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
 
 clean:
 	rm	-rf $(OBJS)
