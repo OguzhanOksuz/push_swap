@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:36:50 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/15 10:56:19 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/02/15 11:59:17 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,7 @@ int	main(int ac, char **av)
 			{
 				stacks = init_num_stacks(ac, av, stacks);
 				stacks = init_index_stacks(stacks);
-//				sort_stacks(stacks);
-//				TEST
-				printf("max val %d\n", max_val(stacks, 0));				
-				printf("min val %d\n", min_val(stacks, 0));
-				printf("mean val %d\n", mean_val(stacks, 0));
-				printf("Short_way_to_val %d\n", short_way_to_val(stacks, 0));
-
-//				TEST
+				wheel_sort(stacks);
 			}
 		}
 		else

@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:36:58 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/15 11:07:51 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/02/15 12:46:42 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,10 @@ void	swap(int **stacks, char *str);
 void	rotate(int **stacks, char *str);
 void	rrotate(int **stacks, char *str);
 void	push(int *dststacs, int *srcstack, char *str);
-int		max_val(int **stacks, int c);
-int		min_val(int **stacks, int c);
-int		mean_val(int **stacks, int c);
-int		short_way_to_val(int **stacks, int c, int mean);
+int		max_val(int *stack);
+int		min_val(int *stack);
+int		mean_val(int *stack);
+int		short_way_to_val(int *stack, int mean);
+void	wheel_sort(int **stacks);	
 
 #endif

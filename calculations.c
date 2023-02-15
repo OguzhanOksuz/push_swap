@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 10:12:24 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/15 11:07:36 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/02/15 14:44:45 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,73 +29,73 @@ int	ft_atoi(char *str)
 	return (num * np);
 }
 
-int	max_val(int **stacks, int c)
+int	max_val(int *stack)
 {
 	int	i;
 	int	tmp;
 
 	i = 1;
-	tmp = stacks[c][1];
-	while (i <= stacks[c][0])
+	tmp = stack[1];
+	while (i <= stack[0])
 	{
-		if (stacks[c][i] > tmp)
-			tmp = stacks[c][i];
+		if (stack[i] > tmp)
+			tmp = stack[i];
 		i++;
 	}
 	return (tmp);
 }
 
-int	min_val(int **stacks, int c)
+int	min_val(int *stack)
 {
 	int	i;
 	int	tmp;
 
 	i = 1;
-	tmp = stacks[c][1];
-	while (i <= stacks[c][0])
+	tmp = stack[1];
+	while (i <= stack[0])
 	{
-		if (stacks[c][i] < tmp)
-			tmp = stacks[c][i];
+		if (stack[i] < tmp)
+			tmp = stack[i];
 		i++;
 	}
 	return (tmp);
 }
 
-int	mean_val(int **stacks, int c)
+int	mean_val(int *stack)
 {
 	int	i;
 	int	sum;
 
 	i = 1;
 	sum = 0;
-	while (i <= stacks[c][0])
+	while (i <= stack[0])
 	{
-		sum += stacks[c][i];
+		sum += stack[i];
 		i++;
 	}
 	return (sum / i);
 }
 
-int	short_way_to_val(int **stacks, int c, int mean)
+int	short_way_to_val(int *stack, int mean)
 {
 	int	i;
 	int	j;
 
 	i = 1;
-	while (i <= stacks[c][0])
+	while (i <= stack[0])
 	{
-		if (stacks[c][i] <= mean)
+		if (stack[i] >= mean)
 			break ;
 		i++;
 	}
-	j = stacks[c][0];
+	j = stack[0];
 	while (j >= 1)
 	{
-		if (stacks[c][j] <= mean)
+		if (stack[j] >= mean)
 			break ;
 		j--;
 	}
-	if (i >= stacks[c][0] && j == 0)
+	if (i >= stack[0] && j <= 1)
 		return (0);
 	else
 		return (j - i);
