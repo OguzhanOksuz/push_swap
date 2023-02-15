@@ -7,7 +7,8 @@ CFLAGS = -Wall -Wextra -Werror
 SRCS =	push_swap.c			\
 		rules.c				\
 		input_check.c		\
-		init_stacks.c
+		init_stacks.c		\
+		calculations.c		
 
 all: $(NAME)
 
