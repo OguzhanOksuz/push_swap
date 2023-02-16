@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:40:15 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/16 19:56:50 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/02/16 20:19:08 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,11 @@ int	step_counts_for_rot_a(int **stacks, int	num)
 		i++;
 	while (stacks[0][j] != max_val_of_smallers(stacks, stacks[0][num]))
 		j++;
-	if (i < j && i <= stacks[0][0] / 2)
+	if (i > stacks[0][0] / 2)
+		i = (stacks[0][0] / 2) - i;
+	if (j > stacks[0][0] / 2)
+		j = (stacks[0][0] / 2) - j;
+	if (i >= j)
 		return (i);
-	if (i < j && i > stacks[0][0] / 2)
-		return ((stacks[0][0] / 2) - i);
-	if (i > j && j <= stacks[0][0] / 2)
-		return (j);
-	return ((stacks[0][0] / 2) - j);
+	return (j);
 }
