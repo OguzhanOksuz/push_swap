@@ -9,7 +9,7 @@ SRCS =	push_swap.c			\
 		input_check.c		\
 		init_stacks.c		\
 		calculations.c		\
-		wheel_sort.c
+		sort.c
 
 all: $(NAME)
 
