@@ -8,8 +8,10 @@ SRCS =	push_swap.c			\
 		rules.c				\
 		input_check.c		\
 		init_stacks.c		\
+		counters.c			\
 		calculations.c		\
-		sort.c
+		sort.c				\
+		double.c			
 
 all: $(NAME)
 

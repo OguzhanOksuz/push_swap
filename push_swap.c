@@ -6,11 +6,21 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:36:50 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/16 14:47:59 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/02/17 17:17:34 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	sort_little(int **stacks)
+{
+	if (stacks[0][1] == max_val(stacks[0]))
+		rotate(stacks, "ra\n");
+	else if (stacks[0][2] == max_val(stacks[0]))
+		rrotate(stacks, "rra\n");
+	if (stacks[0][1] > stacks[0][2])
+		swap(stacks, "sa\n");
+}
 
 int	ft_atoi(char *str)
 {
@@ -45,7 +55,10 @@ int	main(int ac, char **av)
 			{
 				stacks = init_num_stacks(ac, av, stacks);
 				stacks = init_index_stacks(stacks);
-				first_push(stacks);
+				if (ac >= 5)
+					sort_big(stacks);
+				else
+					sort_little(stacks);
 			}
 		}
 		else
