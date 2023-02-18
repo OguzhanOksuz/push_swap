@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:30:02 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/18 15:34:09 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/02/18 18:28:53 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ void	first_push(int **stacks)
 	{
 		if (stacks[0][1] <= mean)
 			push(stacks[1], stacks[0], "pb\n");
-		else
+		else if (next_way_to_mean(stacks[0], mean) > 0)
 			rotate(stacks, "ra\n");
+		else
+			rrotate(stacks, "rra\n");
 	}
 	while (stacks[0][0] > 3)
 		push(stacks[1], stacks[0], "pb\n");

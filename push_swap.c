@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:36:50 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/18 16:59:54 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/02/18 20:53:11 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,44 @@ void	sort_little(int **stacks)
 		swap(stacks, "sa\n");
 }
 
+void	sort_middle(int **stacks)
+{
+	while (stacks[0][0] > 3)
+	{
+		if (short_way(stacks[0], min_val(stacks[0])) > 0)
+			while (stacks[0][1] != min_val(stacks[0]))
+				rotate(stacks, "ra\n");
+		else if (short_way(stacks[0], min_val(stacks[0])) < 0)
+			while (stacks[0][1] != min_val(stacks[0]))
+				rrotate(stacks, "rra\n");
+		push(stacks[1], stacks[0], "pb\n");
+	}
+	sort_little(stacks);
+	if (stacks[1][0] == 2 && stacks[1][1] < stacks[1][2])
+		rotate(stacks, "ra\n");
+	while (stacks[1][0] != 0)
+		push(stacks[0], stacks[1], "pa\n");
+}
+
 void	sort_all(int **stacks)
 {
-	if (stacks[0][0] > 5)
+
+	if (stacks[0][0] == 2)
 	{
-		sort_big(stacks);
-	}
-	else if (stacks[0][0] > 3)
-	{
-//		sort_middle(stacks);
+		if (stacks[0][1] > stacks[0][2])
+			rotate(stacks, "ra\n");
 	}
 	else if (stacks[0][0] == 3)
 	{
 		sort_little(stacks);
 	}
-	else if (stacks[0][0] == 2 && stacks[0][1] > stacks[0][2])
+	else if (stacks[0][0] == 5)
 	{
-		rotate(stacks, "ra\n");
+		sort_middle(stacks);
+	}
+	else
+	{
+		sort_big(stacks);
 	}
 }
 
@@ -88,4 +109,5 @@ int	main(int ac, char **av)
 		else
 			write(1, "Error\n", 6);
 	}
+	write(1, "\n", 1);
 }

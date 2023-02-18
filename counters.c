@@ -6,11 +6,36 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:40:15 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/18 14:28:51 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/02/18 18:35:27 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	next_way_to_mean(int *stacks, int mean)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	j = stacks[0];
+	while (i <= stacks[0])
+	{
+		if (stacks[i] <= mean)
+			break ;
+		i++;
+	}
+	while (j >= 1)
+	{
+		if (stacks[j] <= mean)
+			break ;
+		j--;
+	}
+	j = stacks[0] - j + 1;
+	if (i < j)
+		return (i);
+	return (j);
+}
 
 int	get_index(int *stack, int num)
 {

@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:36:58 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/18 14:15:28 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/02/18 18:14:50 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int		**init_index_stacks(int **stacks);
 
 int		ft_atoi(char *str);
 
+int		next_way_to_mean(int *stacks, int mean);
 int		get_index(int *stacks, int num);
 int		short_way(int *stack, int num);
 void	count_b(int **stacks);
