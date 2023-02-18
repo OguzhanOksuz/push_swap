@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:30:02 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/18 14:39:43 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/02/18 15:07:27 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,7 @@ void	first_push(int **stacks)
 	int	mean;
 
 	mean = (stacks[0][0] + 1) / 2;
-	while (stacks[0][0] > 3 * mean / 2)
-	{
-		if (stacks[0][1] <= mean / 2)
-			push(stacks[1], stacks[0], "pb\n");
-		else
-			rotate(stacks, "ra\n");
-	}
-	while (stacks[0][0] > mean / 2)
+	while (stacks[0][0] > mean)
 	{
 		if (stacks[0][1] <= mean)
 			push(stacks[1], stacks[0], "pb\n");
@@ -46,10 +39,10 @@ void	set_stacks(int **s)
 			rrotate(s, "rrb\n");
 	if (s[1][1] > max_val(s[0]))
 	{
-		if (short_way(s[0], min_val(s[0]) > 0))
+		if (short_way(s[0], min_val(s[0])) > 0)
 			while (s[0][1] != min_val(s[0]))
 				rotate(s, "ra\n");
-		else if (short_way(s[0], min_val(s[0]) < 0))
+		else if (short_way(s[0], min_val(s[0])) < 0)
 			while (s[0][1] != min_val(s[0]))
 				rrotate(s, "rra\n");
 	}

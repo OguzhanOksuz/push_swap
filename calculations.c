@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 10:22:07 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/18 12:59:07 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/02/18 15:04:26 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	max_val(int *stack)
 	int	i;
 
 	i = 1;
-	tmp = stack[1];
+	tmp = 0;
 	while (i <= stack[0])
 	{
 		if (stack[i] > tmp)
