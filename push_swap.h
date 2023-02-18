@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:36:58 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/18 18:14:50 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/02/19 01:09:08 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,14 @@
 # include <stdio.h>
 # include <stdlib.h>
 
-int		input_num_check(int ac, char **av);
-int		input_dup_check(int ac, char **av);
-int		input_num_range_check(int ac, char **av);
+int		input_num_c(int ac, char **av);
+int		input_dup_c(int ac, char **av);
+int		input_num_r_c(int ac, char **av);
 
 int		**init_empty_stacks(int ac);
 int		**init_num_stacks(int ac, char **av, int **stacks);
 int		**init_index_stacks_extension(int **stacks);
 int		**init_index_stacks(int **stacks);
-
-int		ft_atoi(char *str);
 
 int		next_way_to_mean(int *stacks, int mean);
 int		get_index(int *stacks, int num);

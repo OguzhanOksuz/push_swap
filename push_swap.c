@@ -6,11 +6,25 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:36:50 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/18 20:53:11 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/02/19 01:21:24 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	is_sorted(int *stack)
+{
+	int	i;
+
+	i = 1;
+	while (i + 1 <= stack[0])
+	{
+		if (stack[i] > stack[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 void	sort_little(int **stacks)
 {
@@ -43,7 +57,9 @@ void	sort_middle(int **stacks)
 
 void	sort_all(int **stacks)
 {
-
+	stacks = init_index_stacks(stacks);
+	if (is_sorted(stacks[0]))
+		return ;
 	if (stacks[0][0] == 2)
 	{
 		if (stacks[0][1] > stacks[0][2])
@@ -61,25 +77,10 @@ void	sort_all(int **stacks)
 	{
 		sort_big(stacks);
 	}
-}
-
-int	ft_atoi(char *str)
-{
-	unsigned int	num;
-	int				np;
-	int				i;
-
-	num = 0;
-	np = 1;
-	i = 0;
-	if (str[i] == '-')
-	{
-		np = -1;
-		i++;
-	}
-	while (str[i])
-		num = (num * 10) + (str[i++] - '0');
-	return (num * np);
+	free(stacks[0]);
+	free(stacks[1]);
+	free(stacks[2]);
+	free(stacks);
 }
 
 int	main(int ac, char **av)
@@ -89,25 +90,19 @@ int	main(int ac, char **av)
 	stacks = NULL;
 	if (ac > 2)
 	{
-		if (input_num_check(ac, av) && input_dup_check(ac, av))
+		if (input_num_c(ac, av) && input_dup_c(ac, av) && input_num_r_c(ac, av))
 		{
-			if (input_num_range_check(ac, av))
+			stacks = init_empty_stacks(ac);
+			if (stacks)
 			{
-				stacks = init_empty_stacks(ac);
-				if (stacks)
-				{
-					stacks = init_num_stacks(ac, av, stacks);
-					stacks = init_index_stacks(stacks);
-					sort_all(stacks);
-				}
-				else
-					write(1, "Error\n", 6);
+				stacks = init_num_stacks(ac, av, stacks);
+				sort_all(stacks);
 			}
 			else
-				write(1, "Error\n", 6);
+					write(2, "Error\n", 6);
 		}
 		else
-			write(1, "Error\n", 6);
+			write(2, "Error\n", 6);
 	}
-	write(1, "\n", 1);
+	return (0);
 }

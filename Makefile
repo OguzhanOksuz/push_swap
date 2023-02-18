@@ -14,13 +14,15 @@ SRCS =	push_swap.c			\
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME):
 	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
 
 clean:
-	rm	-rf $(OBJS)
+	rm	-rf 
 
 fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all
+
+.PHONY: clean fclean re

@@ -6,13 +6,13 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:46:23 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/12 01:52:21 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/02/19 00:48:44 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	input_num_check(int ac, char **av)
+int	input_num_c(int ac, char **av)
 {
 	int	i;
 	int	j;
@@ -23,6 +23,8 @@ int	input_num_check(int ac, char **av)
 		i = 0;
 		if (av[j][i] == '-' || av[j][i] == '+')
 			i++;
+		if (av[j][i] == 0)
+			return (0);
 		while (av[j][i])
 		{
 			if (av[j][i] < '0' || av[j][i] > '9')
@@ -34,7 +36,7 @@ int	input_num_check(int ac, char **av)
 	return (1);
 }
 
-int	input_dup_check(int ac, char **av)
+int	input_dup_c(int ac, char **av)
 {
 	int	i;
 	int	j;
@@ -58,7 +60,7 @@ int	input_dup_check(int ac, char **av)
 	return (1);
 }
 
-int	input_num_range_check(int ac, char **av)
+int	input_num_r_c(int ac, char **av)
 {
 	unsigned int	num;
 	int				i;
@@ -76,7 +78,7 @@ int	input_num_range_check(int ac, char **av)
 			np = -1;
 			i++;
 		}
-		while (av[j][i])
+		while (av[j][i] && av[j][i] >= '0' && av[j][i] <= '9')
 			num = (10 * num) + (av[j][i++] - '0');
 		if ((np == 1 && num > 2147483647) || (np == -1 && num > 2147483648))
 			return (0);
