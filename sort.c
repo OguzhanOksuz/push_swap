@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:30:02 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/18 15:07:27 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/02/18 15:34:09 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,10 @@ void	sort_big(int **stacks)
 		set_stacks(stacks);
 		push(stacks[0], stacks[1], "pa\n");
 	}
+	if (short_way(stacks[0], min_val(stacks[0])) > 0)
+		while (stacks[0][1] != min_val(stacks[0]))
+			rotate(stacks, "ra\n");
+	else if (short_way(stacks[0], min_val(stacks[0])) < 0)
+		while (stacks[0][1] != min_val(stacks[0]))
+			rrotate(stacks, "rra\n");
 }
