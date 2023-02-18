@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 10:22:07 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/17 15:07:10 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/02/18 11:06:00 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	short_val(int *stack, int num)
 		i++;
 	}
 	if (i <= (stack[0] / 2))
-		return (1);
-	return (-1);
+		return (i - 1);
+	return (stack[0] - i + 1);
 }
 
 int	max_val(int *stack)

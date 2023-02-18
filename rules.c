@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 12:33:36 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/17 18:46:52 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/02/18 11:46:16 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,18 @@ void	rotate(int **stacks, char *str)
 		stacks[str[1] - 'a'][i] = tmp;
 		write(1, str, 3);
 	}
-	else if (str[1] == 'r')
-		double_rotate(stacks, str);
+}
+
+void	rotate(int **stacks, char *str)
+{
+	int i;
+	int	tmp;
+
+	i = 1;
+	if ((str[1] == 'a' || str[1] == 'r') && stacks[0][0] > 1)
+	{
+
+	}	
 }
 
 void	rrotate(int	**stacks, char *str)
@@ -67,8 +77,6 @@ void	rrotate(int	**stacks, char *str)
 		stacks[str[2] - 'a'][i] = tmp;
 		write(1, str, 4);
 	}
-	else if (str[2] == 'r')
-		double_rrotate(stacks, str);
 }
 
 void	push(int *dststack, int *srcstack, char *str)
