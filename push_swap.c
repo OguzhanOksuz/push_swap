@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:36:50 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/18 11:11:57 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/02/18 13:48:47 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,7 @@ int	main(int ac, char **av)
 			{
 				stacks = init_num_stacks(ac, av, stacks);
 				stacks = init_index_stacks(stacks);
-				if (ac >= 5)
-				{
-					count_b(stacks);
-				}
-				else
-					sort_little(stacks);
+				sort_big(stacks);
 			}
 		}
 		else

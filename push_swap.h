@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:36:58 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/18 11:40:47 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/02/18 14:15:28 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void	swap(int **stacks, char *str);
 void	push(int *dststacs, int *srcstack, char *str);
 void	rotate(int **stacks, char *str);
 void	rrotate(int **stacks, char *str);
-
 
 void	sort_big(int **stacks);
 void	sort_little(int **stacks);

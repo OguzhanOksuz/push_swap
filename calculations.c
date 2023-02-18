@@ -6,22 +6,18 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 10:22:07 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/18 11:06:00 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/02/18 12:59:07 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 int	short_val(int *stack, int num)
 {
 	int	i;
 
-	i = 1;
-	while (i <= stack[0])
-	{
-		if (stack[i] == num)
-			break ;
-		i++;
-	}
-	if (i <= (stack[0] / 2))
+	i = get_index(stack, num);
+	if (i <= stack[0] / 2)
 		return (i - 1);
 	return (stack[0] - i + 1);
 }

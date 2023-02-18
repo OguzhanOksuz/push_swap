@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 12:33:36 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/18 11:46:16 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/02/18 13:21:21 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,49 +34,47 @@ void	rotate(int **stacks, char *str)
 	int	i;
 	int	tmp;
 
-	i = 1;
-	if ((str[1] == 'a' || str[1] == 'b') && stacks[str[1] - 'a'][0] > 1)
-	{
-		tmp = stacks[str[1] - 'a'][1];
-		while (i < stacks[str[1] - 'a'][0])
-		{
-			stacks[str[1] - 'a'][i] = stacks[str[1] - 'a'][i + 1];
-			i++;
-		}
-		stacks[str[1] - 'a'][i] = tmp;
-		write(1, str, 3);
-	}
-}
-
-void	rotate(int **stacks, char *str)
-{
-	int i;
-	int	tmp;
-
-	i = 1;
+	i = 0;
 	if ((str[1] == 'a' || str[1] == 'r') && stacks[0][0] > 1)
 	{
-
-	}	
+		tmp = stacks[0][1];
+		while (++i + 1 <= stacks[0][0])
+			stacks[0][i] = stacks[0][i + 1];
+		stacks[0][i] = tmp;
+	}
+	i = 0;
+	if ((str[1] == 'b' || str[1] == 'r') && stacks[1][0] > 1)
+	{
+		tmp = stacks[1][1];
+		while (++i + 1 <= stacks[1][0])
+			stacks[1][i] = stacks[1][i + 1];
+		stacks[1][i] = tmp;
+	}
+	write(1, str, 3);
 }
 
-void	rrotate(int	**stacks, char *str)
+void	rrotate(int **stacks, char *str)
 {
 	int	i;
 	int	tmp;
 
-	i = stacks[str[2] - 'a'][0];
-	if ((str[2] == 'a' || str[2] == 'b') && stacks[str[2] - 'a'][0] > 1)
+	i = stacks[0][0] + 1;
+	if ((str[2] == 'a' || str[2] == 'r') && stacks[0][0] > 1)
 	{
-		tmp = stacks[str[2] - 'a'][i];
-		while (i > 1)
-		{
-			stacks[str[2] - 'a'][i] = stacks[str[2] - 'a'][i - 1];
-			i--;
-		}
-		stacks[str[2] - 'a'][i] = tmp;
-		write(1, str, 4);
+		tmp = stacks[0][i - 1];
+		while (--i > 1)
+			stacks[0][i] = stacks[0][i - 1];
+		stacks[0][i] = tmp;
 	}
+	i = stacks[1][0] + 1;
+	if ((str[2] == 'b' || str[2] == 'r') && stacks[1][0] > 1)
+	{
+		tmp = stacks[1][i - 1];
+		while (--i > 1)
+			stacks[1][i] = stacks[1][i - 1];
+		stacks[1][1] = tmp;
+	}
+	write(1, str, 4);
 }
 
 void	push(int *dststack, int *srcstack, char *str)
