@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 12:33:36 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/20 18:57:49 by Ooksuz           ###   ########.fr       */
+/*   Updated: 2023/02/20 20:46:48 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	checker_rrotate(int **stacks, char *str)
 	}
 }
 
-void	checker_push(int *dststack, int *srcstack, char *str)
+void	checker_push(int *dststack, int *srcstack)
 {
 	int	i;
 

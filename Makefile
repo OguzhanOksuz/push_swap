@@ -29,7 +29,7 @@ $(NAME):
 	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
 
 $(BNAME):
-	$(CC) $(CFLAGS) $(SRCS) -o $(BNAME)
+	$(CC) $(CFLAGS) $(BSRCS) -o $(BNAME)
 
 clean:
 	rm	-rf 

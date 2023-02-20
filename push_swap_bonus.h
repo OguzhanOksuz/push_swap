@@ -6,12 +6,12 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:36:58 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/20 18:46:24 by Ooksuz           ###   ########.fr       */
+/*   Updated: 2023/02/20 20:47:32 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 
 # include <unistd.h>
 # include <stdio.h>
@@ -25,9 +25,8 @@ int		**init_index_stacks_extension(int **stacks);
 int		**init_index_stacks(int **stacks);
 
 void	checker_swap(int **stacks, char *str);
-void	checker_push(int *dststacs, int *srcstack, char *str);
+void	checker_push(int *dststacs, int *srcstack);
 void	checker_rotate(int **stacks, char *str);
 void	checker_rrotate(int **stacks, char *str);
-
 
 #endif
