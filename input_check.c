@@ -6,13 +6,11 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:46:23 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/19 00:48:44 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/02/20 11:28:01 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int	input_num_c(int ac, char **av)
+int	input_num_check(int ac, char **av)
 {
 	int	i;
 	int	j;
@@ -36,7 +34,7 @@ int	input_num_c(int ac, char **av)
 	return (1);
 }
 
-int	input_dup_c(int ac, char **av)
+int	input_dup_check(int ac, char **av)
 {
 	int	i;
 	int	j;
@@ -60,7 +58,7 @@ int	input_dup_c(int ac, char **av)
 	return (1);
 }
 
-int	input_num_r_c(int ac, char **av)
+int	input_num_range_check(int ac, char **av)
 {
 	unsigned int	num;
 	int				i;
@@ -85,4 +83,18 @@ int	input_num_r_c(int ac, char **av)
 		j++;
 	}
 	return (1);
+}
+
+int	input_check(int ac, char **av)
+{
+	if (input_num_check(ac, av) && input_dup_check(ac, av))
+	{
+		if (input_num_range_check(ac, av))
+		{
+			return (1);
+		}
+		return (0);
+	}
+	else
+		return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:36:50 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/19 01:21:24 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/02/20 11:42:00 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,21 +88,20 @@ int	main(int ac, char **av)
 	int	**stacks;
 
 	stacks = NULL;
-	if (ac > 2)
+	if (ac <= 2)
+		return (0);
+	else if (ac > 2 && input_check(ac, av))
 	{
-		if (input_num_c(ac, av) && input_dup_c(ac, av) && input_num_r_c(ac, av))
+		stacks = init_empty_stacks(ac);
+		if (stacks)
 		{
-			stacks = init_empty_stacks(ac);
-			if (stacks)
-			{
-				stacks = init_num_stacks(ac, av, stacks);
-				sort_all(stacks);
-			}
-			else
-					write(2, "Error\n", 6);
+			stacks = init_num_stacks(ac, av, stacks);
+			sort_all(stacks);
 		}
 		else
 			write(2, "Error\n", 6);
 	}
+	else
+		write(2, "Error\n", 6);
 	return (0);
 }

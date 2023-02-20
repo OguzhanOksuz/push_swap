@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:36:58 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/19 01:09:08 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/02/20 11:28:16 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 
-int		input_num_c(int ac, char **av);
-int		input_dup_c(int ac, char **av);
-int		input_num_r_c(int ac, char **av);
+int		input_check(int ac, char **av);
 
 int		**init_empty_stacks(int ac);
 int		**init_num_stacks(int ac, char **av, int **stacks);
