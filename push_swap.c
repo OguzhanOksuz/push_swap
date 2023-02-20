@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:36:50 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/20 11:42:00 by Ooksuz           ###   ########.fr       */
+/*   Updated: 2023/02/20 16:45:14 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,7 @@ int	main(int ac, char **av)
 	int	**stacks;
 
 	stacks = NULL;
-	if (ac <= 2)
-		return (0);
-	else if (ac > 2 && input_check(ac, av))
+	if (input_check(ac, av) == 1)
 	{
 		stacks = init_empty_stacks(ac);
 		if (stacks)
@@ -101,7 +99,7 @@ int	main(int ac, char **av)
 		else
 			write(2, "Error\n", 6);
 	}
-	else
+	else if (input_check(ac, av) == 0)
 		write(2, "Error\n", 6);
 	return (0);
 }
