@@ -14,12 +14,13 @@ SRCS =	push_swap.c			\
 		calculations.c		\
 		sort.c
 
-BSRCS = push_swap_bonus.c	\
-	rules_bonus.c		\
-	init_stacks.c		\
-	input_check.c		\
-	get_next_line.c		\
-	get_next_line_utils.c
+BSRCS = checker.c		\
+		rules.c				\
+		input_check.c		\
+		init_stacks.c		\
+		counters.c			\
+		calculations.c		\
+		sort.c
 
 all: $(NAME)
 
