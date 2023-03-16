@@ -37,12 +37,11 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
-
-bfclean: 
 	rm -rf $(BNAME)
+
 
 re: fclean all
 
 bre: bfclean bonus
 
-.PHONY: clean fclean re
+.PHONY: clean fclean re bre bonus all
