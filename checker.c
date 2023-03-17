@@ -6,13 +6,13 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:10:38 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/03/17 00:21:41 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/03/17 14:35:35 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_sorted(int *stack)
+int	is_sorted(int *stack, int ac)
 {
 	int	i;
 
@@ -23,7 +23,9 @@ int	is_sorted(int *stack)
 			return (0);
 		i++;
 	}
-	return (1);
+	if (ac - 1 == stack[0])
+		return (1);
+	return (0);
 }
 
 void	sort_little(int **stacks)
@@ -55,10 +57,10 @@ void	sort_middle(int **stacks)
 		push(stacks[0], stacks[1], "pa\n");
 }
 
-void	sort_all(int **stacks)
+void	sort_all(int **stacks, int ac)
 {
 	stacks = init_index_stacks(stacks);
-	if (is_sorted(stacks[0]))
+	if (is_sorted(stacks[0], ac))
 		return ;
 	if (stacks[0][0] == 2)
 	{
@@ -77,7 +79,7 @@ void	sort_all(int **stacks)
 	{
 		sort_big(stacks);
 	}
-	if (is_sorted(stacks[0]))
+	if (is_sorted(stacks[0], ac))
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
@@ -94,7 +96,7 @@ int	main(int ac, char **av)
 		if (stacks)
 		{
 			stacks = init_num_stacks(ac, av, stacks);
-			sort_all(stacks);
+			sort_all(stacks, ac);
 		}
 		else
 			write(2, "Error\n", 6);

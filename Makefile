@@ -42,6 +42,6 @@ fclean: clean
 
 re: fclean all
 
-bre: bfclean bonus
+bre: fclean bonus
 
 .PHONY: clean fclean re bre bonus all
