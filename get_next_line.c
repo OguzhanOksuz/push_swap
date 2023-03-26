@@ -6,7 +6,7 @@
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 18:34:22 by Ooksuz            #+#    #+#             */
-/*   Updated: 2023/03/26 20:16:08 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/03/26 20:27:23 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,14 +103,12 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-int ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
 
 	i = 0;
 	while (s1[i] && s2[i] && s1[i] == s2[i])
 		i++;
-	if (s1[i] == 0 && s2[i] == 0)
-		return (1);
-	return (0);
+	return (s1[i] - s2[i]);
 }

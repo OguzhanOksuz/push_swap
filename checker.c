@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:10:38 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/03/26 20:17:34 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/03/26 20:26:51 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	main(int ac, char **av)
 	char	*line;
 
 	stacks = NULL;
-	if (input_check(ac, av) == 1)
+	if (input_check(ac, av) == 1 && ac != 1)
 	{
 		stacks = init_empty_stacks(ac);
 		if (!stacks)
