@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:10:38 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/03/26 17:40:58 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/03/26 17:45:23 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,6 @@ void	sort_all(int **stacks, int ac)
 	{
 		sort_big(stacks);
 	}
-	free(stacks[0]);
-	free(stacks[1]);
-	free(stacks[2]);
-	free(stacks);
 }
 
 int	main(int ac, char **av)
@@ -97,10 +93,6 @@ int	main(int ac, char **av)
 		{
 			stacks = init_num_stacks(ac, av, stacks);
 			sort_all(stacks, ac);
-			if (is_sorted(stacks[0], ac))
-				write(1, "OK\n", 3);
-			else
-				write(1, "KO\n", 3);
 		}
 		else
 			write(2, "Error\n", 6);
