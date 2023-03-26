@@ -6,11 +6,11 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:10:38 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/03/26 20:02:16 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/03/26 20:17:34 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "push_swap.h"
 
 int	is_sorted(int **stacks, int ac)
 {
@@ -54,18 +54,18 @@ void	do_rule(int **stacks, char *line)
 {
 	int	code;
 
-	if (str_cmp(line, "sa\n") == 0 || str_cmp(line, "sb\n") == 0
-		|| str_cmp(line, "ss\n") == 0)
+	if (ft_strcmp(line, "sa\n") == 0 || ft_strcmp(line, "sb\n") == 0
+		|| ft_strcmp(line, "ss\n") == 0)
 		code = 1;
-	else if (str_cmp(line, "ra\n") == 0 || str_cmp(line, "rb\n") == 0
-		|| str_cmp(line, "rr\n") == 0)
+	else if (ft_strcmp(line, "ra\n") == 0 || ft_strcmp(line, "rb\n") == 0
+		|| ft_strcmp(line, "rr\n") == 0)
 		code = 2;
-	else if (str_cmp(line, "rra\n") == 0 || str_cmp(line, "rrb\n") == 0
-		|| str_cmp(line, "rrr\n") == 0)
+	else if (ft_strcmp(line, "rra\n") == 0 || ft_strcmp(line, "rrb\n") == 0
+		|| ft_strcmp(line, "rrr\n") == 0)
 		code = 3;
-	else if (str_cmp(line, "pa\n") == 0)
+	else if (ft_strcmp(line, "pa\n") == 0)
 		code = 4;
-	else if (str_cmp(line, "pb\n") == 0)
+	else if (ft_strcmp(line, "pb\n") == 0)
 		code = 5;
 	else
 	{
