@@ -6,98 +6,101 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:10:38 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/03/26 17:45:23 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/03/26 20:02:16 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-int	is_sorted(int *stack, int ac)
+int	is_sorted(int **stacks, int ac)
 {
 	int	i;
 
 	i = 1;
-	while (i + 1 <= stack[0])
+	if (stacks[1][0] != 0)
+		return (0);
+	while (i + 1 <= stacks[0][0])
 	{
-		if (stack[i] > stack[i + 1])
+		if (stacks[0][i] > stacks[0][i + 1])
 			return (0);
 		i++;
 	}
-	if (ac - 1 == stack[0])
+	if (ac - 1 == stacks[0][0])
 		return (1);
 	return (0);
 }
 
-void	sort_little(int **stacks)
+void	error(void)
 {
-	if (stacks[0][1] == max_val(stacks[0]))
-		rotate(stacks, "ra\n");
-	else if (stacks[0][2] == max_val(stacks[0]))
-		rrotate(stacks, "rra\n");
-	if (stacks[0][1] > stacks[0][2] && stacks[0][0])
-		swap(stacks, "sa\n");
+	write(1, "Error\n", 6);
+	exit(1);
 }
 
-void	sort_middle(int **stacks)
+void	do_code(int **stacks, char *line, int code)
 {
-	while (stacks[0][0] > 3)
-	{
-		if (short_way(stacks[0], min_val(stacks[0])) > 0)
-			while (stacks[0][1] != min_val(stacks[0]))
-				rotate(stacks, "ra\n");
-		else if (short_way(stacks[0], min_val(stacks[0])) < 0)
-			while (stacks[0][1] != min_val(stacks[0]))
-				rrotate(stacks, "rra\n");
-		push(stacks[1], stacks[0], "pb\n");
-	}
-	sort_little(stacks);
-	if (stacks[1][0] == 2 && stacks[1][1] < stacks[1][2])
-		rotate(stacks, "ra\n");
-	while (stacks[1][0] != 0)
-		push(stacks[0], stacks[1], "pa\n");
+	if (code == 1)
+		swap(stacks, line);
+	else if (code == 2)
+		rotate(stacks, line);
+	else if (code == 3)
+		rrotate(stacks, line);
+	else if (code == 4)
+		push(stacks[0], stacks[1], line);
+	else if (code == 5)
+		push(stacks[1], stacks[0], line);
 }
 
-void	sort_all(int **stacks, int ac)
+void	do_rule(int **stacks, char *line)
 {
-	stacks = init_index_stacks(stacks);
-	if (is_sorted(stacks[0], ac))
-		return ;
-	if (stacks[0][0] == 2)
-	{
-		if (stacks[0][1] > stacks[0][2])
-			rotate(stacks, "ra\n");
-	}
-	else if (stacks[0][0] == 3)
-	{
-		sort_little(stacks);
-	}
-	else if (stacks[0][0] == 5)
-	{
-		sort_middle(stacks);
-	}
+	int	code;
+
+	if (str_cmp(line, "sa\n") == 0 || str_cmp(line, "sb\n") == 0
+		|| str_cmp(line, "ss\n") == 0)
+		code = 1;
+	else if (str_cmp(line, "ra\n") == 0 || str_cmp(line, "rb\n") == 0
+		|| str_cmp(line, "rr\n") == 0)
+		code = 2;
+	else if (str_cmp(line, "rra\n") == 0 || str_cmp(line, "rrb\n") == 0
+		|| str_cmp(line, "rrr\n") == 0)
+		code = 3;
+	else if (str_cmp(line, "pa\n") == 0)
+		code = 4;
+	else if (str_cmp(line, "pb\n") == 0)
+		code = 5;
 	else
 	{
-		sort_big(stacks);
+		code = -42;
+		error();
 	}
+	line[0] = 0;
+	do_code(stacks, line, code);
 }
 
 int	main(int ac, char **av)
 {
-	int	**stacks;
+	int		**stacks;
+	char	*line;
 
 	stacks = NULL;
 	if (input_check(ac, av) == 1)
 	{
 		stacks = init_empty_stacks(ac);
-		if (stacks)
+		if (!stacks)
+			error();
+		stacks = init_num_stacks(ac, av, stacks);
+		line = get_next_line(0);
+		while (line)
 		{
-			stacks = init_num_stacks(ac, av, stacks);
-			sort_all(stacks, ac);
+			do_rule(stacks, line);
+			free(line);
+			line = get_next_line(0);
 		}
+		if (is_sorted(stacks, ac))
+			write(1, "OK\n", 3);
 		else
-			write(2, "Error\n", 6);
+			write(1, "KO\n", 3);
 	}
 	else if (input_check(ac, av) == 0)
-		write(2, "Error\n", 6);
+		error();
 	return (0);
 }

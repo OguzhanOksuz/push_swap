@@ -22,7 +22,7 @@ BSRCS = checker.c		\
 		calculations.c		\
 		sort.c
 
-all: $(NAME)
+all: $(NAME) bonus
 
 bonus: $(BNAME)
 

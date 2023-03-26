@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 12:33:36 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/03/16 12:31:54 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/03/26 19:44:55 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,6 @@ void	push(int *dststack, int *srcstack, char *str)
 	srcstack[i] = 0;
 	dststack[0]++;
 	srcstack[0]--;
-	write(1, str, 3);
+	if (str[0] != 0)
+		write(1, str, 3);
 }
