@@ -8,6 +8,8 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRCS =	push_swap.c			\
 		rules.c				\
+		input_format.c		\
+		ft_split.c		\
 		input_check.c		\
 		init_stacks.c		\
 		counters.c			\

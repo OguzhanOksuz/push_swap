@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:36:58 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/03/26 20:16:27 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/05/01 16:05:28 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,10 @@ void	sort_little(int **stacks);
 
 char	*get_next_line(int fd);
 char	*ft_strjoin(char *s1, char *s2);
+char	**ft_split(char *str);
+char	**input_format(int ac, char **av);
 int		ft_strchr(const char *str, int c);
 int		ft_strcmp(char *s1, char *s2);
+int		get_new_ac(char **av);
 size_t	ft_strlen(const char *str);
 #endif

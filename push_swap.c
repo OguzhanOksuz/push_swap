@@ -6,12 +6,12 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:36:50 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/02/20 16:45:14 by Ooksuz           ###   ########.fr       */
+/*   Updated: 2023/05/01 16:03:21 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+#include <stdio.h>
 int	is_sorted(int *stack)
 {
 	int	i;
@@ -88,6 +88,8 @@ int	main(int ac, char **av)
 	int	**stacks;
 
 	stacks = NULL;
+	av = input_format(ac, av);
+	ac = get_new_ac(av);
 	if (input_check(ac, av) == 1)
 	{
 		stacks = init_empty_stacks(ac);
@@ -101,5 +103,6 @@ int	main(int ac, char **av)
 	}
 	else if (input_check(ac, av) == 0)
 		write(2, "Error\n", 6);
+	av = input_format(ac, av);
 	return (0);
 }
