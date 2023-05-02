@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
+
 int	is_sorted(int *stack)
 {
 	int	i;
@@ -86,23 +86,24 @@ void	sort_all(int **stacks)
 int	main(int ac, char **av)
 {
 	int	**stacks;
+	char	**list;
 
 	stacks = NULL;
-	av = input_format(ac, av);
-	ac = get_new_ac(av);
-	if (input_check(ac, av) == 1)
+	list = input_format(ac, av);
+	ac = get_new_ac(list);
+	if (input_check(ac, list) == 1)
 	{
 		stacks = init_empty_stacks(ac);
 		if (stacks)
 		{
-			stacks = init_num_stacks(ac, av, stacks);
+			stacks = init_num_stacks(ac, list, stacks);
 			sort_all(stacks);
 		}
 		else
 			write(2, "Error\n", 6);
 	}
-	else if (input_check(ac, av) == 0)
+	else if (input_check(ac, list) == 0)
 		write(2, "Error\n", 6);
-	av = input_format(ac, av);
+	system("leaks push_swap");
 	return (0);
 }

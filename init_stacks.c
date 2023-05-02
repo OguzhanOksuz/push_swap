@@ -38,13 +38,13 @@ int	**init_empty_stacks(int ac)
 	stacks = (int **)malloc(sizeof(int *) * 3);
 	if (!stacks)
 		return (0);
-	stacks[0] = (int *)malloc(sizeof(int) * ac);
+	stacks[0] = (int *)malloc(sizeof(int) * (ac + 1));
 	if (!stacks[0])
 		return (0);
-	stacks[1] = (int *)malloc(sizeof(int) * ac);
+	stacks[1] = (int *)malloc(sizeof(int) * (ac + 1));
 	if (!stacks[1])
 		return (0);
-	stacks[2] = (int *)malloc(sizeof(int) * ac);
+	stacks[2] = (int *)malloc(sizeof(int) * (ac + 1));
 	if (!stacks[2])
 		return (0);
 	return (stacks);
@@ -54,10 +54,10 @@ int	**init_num_stacks(int ac, char **av, int **stacks)
 {
 	int	i;
 
-	stacks[0][0] = ac - 1;
+	stacks[0][0] = ac;
 	stacks[1][0] = 0;
-	stacks[2][0] = ac - 1;
-	i = 1;
+	stacks[2][0] = ac;
+	i = 0;
 	while (i < ac)
 	{
 		stacks[0][i] = ft_atoi(av[i]);
