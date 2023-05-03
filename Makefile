@@ -21,7 +21,9 @@ BSRCS = checker.c				\
 		input_check.c			\
 		init_stacks.c			\
 		get_next_line.c			\
-		get_next_line_utils.c
+		get_next_line_utils.c	\
+		input_format.c			\
+		ft_split.c
 
 all: $(NAME) bonus
 

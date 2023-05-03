@@ -28,6 +28,10 @@ int	is_sorted(int **stacks, int ac)
 	if (ac - 1 == stacks[0][0])
 		return (1);
 	return (0);
+	free(stacks[0]);
+	free(stacks[1]);
+	free(stacks[2]);
+	free(stacks);
 }
 
 void	error(void)
@@ -82,6 +86,10 @@ int	main(int ac, char **av)
 	char	*line;
 
 	stacks = NULL;
+	av = input_format(ac, av);
+	if (!av)
+		return (write(2, "Error\n", 6) - 6);
+	ac = get_new_ac(av);
 	if (input_check(ac, av) == 1 && ac != 1)
 	{
 		stacks = init_empty_stacks(ac);

@@ -12,6 +12,16 @@
 
 #include "push_swap.h"
 
+void	free_list(char **av)
+{
+	int	i;
+
+	i = 0;
+	while (av[i])
+		free(av[i++]);
+	free(av[i]);
+}
+
 int	get_new_ac(char **av)
 {
 	int	i;
@@ -32,7 +42,7 @@ int	ft_strlen2(char *str)
 	return (i);
 }
 
-char *ft_strjoin2(char *s1, char *s2)
+char	*ft_strjoin2(char *s1, char *s2)
 {
 	int		len1;
 	int		len2;
@@ -52,21 +62,29 @@ char *ft_strjoin2(char *s1, char *s2)
 	while (++i < len2)
 		res[len1 + i + 1] = s2[i];
 	res[len1 + len2 + 1] = 0;
+	free(s1);
 	return (res);
 }
 
-char **input_format(int ac, char **av)
+char	**input_format(int ac, char **av)
 {
-	int 	i;
+	int		i;
 	char	*input;
+	char	**list;
 
-	input = av[1];
-	i = 2;
+	input = (char *)malloc(sizeof(char));
+	if (!input)
+		return (NULL);
+	input[0] = 0;
+	i = 1;
 	while (i < ac)
 	{
-		input = ft_strjoin2(input, av[i++]);
+		input = ft_strjoin2(input, av[i]);
 		if (!input)
 			return (NULL);
+		i++;
 	}
-	return (ft_split(input));
+	list = ft_split(input);
+	free(input);
+	return (list);
 }

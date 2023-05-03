@@ -46,6 +46,7 @@ char	*get_next_line(int fd);
 char	*ft_strjoin(char *s1, char *s2);
 char	**ft_split(char *str);
 char	**input_format(int ac, char **av);
+void	free_list(char **list);
 int		ft_strchr(const char *str, int c);
 int		ft_strcmp(char *s1, char *s2);
 int		get_new_ac(char **av);

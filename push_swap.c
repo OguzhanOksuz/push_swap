@@ -85,25 +85,25 @@ void	sort_all(int **stacks)
 
 int	main(int ac, char **av)
 {
-	int	**stacks;
-	char	**list;
+	int		**stacks;
 
 	stacks = NULL;
-	list = input_format(ac, av);
-	ac = get_new_ac(list);
-	if (input_check(ac, list) == 1)
+	av = input_format(ac, av);
+	if (!av)
+		return (write(2, "Error\n", 6) - 6);
+	ac = get_new_ac(av);
+	if (input_check(ac, av) == 1)
 	{
 		stacks = init_empty_stacks(ac);
 		if (stacks)
 		{
-			stacks = init_num_stacks(ac, list, stacks);
+			stacks = init_num_stacks(ac, av, stacks);
 			sort_all(stacks);
 		}
 		else
 			write(2, "Error\n", 6);
 	}
-	else if (input_check(ac, list) == 0)
+	else if (input_check(ac, av) == 0)
 		write(2, "Error\n", 6);
-	system("leaks push_swap");
 	return (0);
 }

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int wordcount(char *str)
+int	wordcount(char *str)
 {
 	int	i;
 	int	count;
@@ -31,7 +31,7 @@ int wordcount(char *str)
 	return (count);
 }
 
-char *ft_substr(char *s1, int len)
+char	*ft_substr(char *s1, int len)
 {
 	char	*str;
 	int		i;
@@ -47,10 +47,9 @@ char *ft_substr(char *s1, int len)
 	}
 	str[i] = 0;
 	return (str);
-
 }
 
-char *next_word(char *str)
+char	*next_word(char *str)
 {
 	int		len;
 
@@ -73,7 +72,7 @@ char	**ft_split(char *str)
 	if (!arr)
 		return (NULL);
 	i = 0;
-	while(*str)
+	while (*str)
 	{
 		if (*str != ' ')
 		{
@@ -81,7 +80,7 @@ char	**ft_split(char *str)
 			while (*str != ' ' && *str)
 				str++;
 			if (*str == 0)
-				break ;	
+				break ;
 		}
 		str++;
 	}

@@ -57,13 +57,17 @@ int	**init_num_stacks(int ac, char **av, int **stacks)
 	stacks[0][0] = ac;
 	stacks[1][0] = 0;
 	stacks[2][0] = ac;
-	i = 0;
-	while (i < ac)
+	i = 1;
+	while (i <= ac)
 	{
-		stacks[0][i] = ft_atoi(av[i]);
-		stacks[2][i] = ft_atoi(av[i]);
+		stacks[0][i] = ft_atoi(av[i - 1]);
+		stacks[2][i] = ft_atoi(av[i - 1]);
 		i++;
 	}
+	i = 0;
+	while (i < ac)
+		free(av[i++]);
+	free(av[i]);
 	return (stacks);
 }
 
