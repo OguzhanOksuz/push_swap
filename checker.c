@@ -34,8 +34,18 @@ int	is_sorted(int **stacks, int ac)
 	free(stacks);
 }
 
-void	error(void)
+void	error(char **list)
 {
+	int	i;
+
+	i = 0;
+	if (list)
+	{
+		while (list[i])
+			free(list[i++]);
+		free(list[i]);
+		free(list);
+	}
 	write(1, "Error\n", 6);
 	exit(1);
 }
@@ -74,7 +84,7 @@ void	do_rule(int **stacks, char *line)
 	else
 	{
 		code = -42;
-		error();
+		error(NULL);
 	}
 	line[0] = 0;
 	do_code(stacks, line, code);
@@ -94,7 +104,7 @@ int	main(int ac, char **av)
 	{
 		stacks = init_empty_stacks(ac);
 		if (!stacks)
-			error();
+			error(av);
 		stacks = init_num_stacks(ac, av, stacks);
 		line = get_next_line(0);
 		while (line)
@@ -109,6 +119,6 @@ int	main(int ac, char **av)
 			write(1, "KO\n", 3);
 	}
 	else if (input_check(ac, av) == 0)
-		error();
+		error(av);
 	return (0);
 }

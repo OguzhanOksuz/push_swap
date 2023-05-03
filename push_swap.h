@@ -39,6 +39,7 @@ void	push(int *dststacs, int *srcstack, char *str);
 void	rotate(int **stacks, char *str);
 void	rrotate(int **stacks, char *str);
 
+void	sort_all(int **stacks);
 void	sort_big(int **stacks);
 void	sort_little(int **stacks);
 
