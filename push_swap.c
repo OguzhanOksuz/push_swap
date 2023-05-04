@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:30:58 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/05/04 23:25:39 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/05/04 23:44:58 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int	push_swap(int ac, char **av)
 
 int	main(int ac, char **av)
 {
-	push_swap(ac, av);
+	if (ac >= 2)
+		push_swap(ac, av);
 	return (0);
 }

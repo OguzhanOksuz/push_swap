@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:36:50 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/05/04 20:35:18 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/05/04 23:47:19 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,11 @@ void	sort_all(int **stacks)
 	{
 		sort_little(stacks);
 	}
-	else if (stacks[0][0] == 5)
+	else if (stacks[0][0] == 4 || stacks[0][0] == 5)
 	{
 		sort_middle(stacks);
 	}
-	else
+	else if (stacks[0][0] > 5)
 	{
 		sort_big(stacks);
 	}
