@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:30:02 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/05/04 20:40:17 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/05/04 23:36:48 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	first_push(int **stacks)
 {
 	int	mean;
 
-	mean = (stacks[0][0]) / 2;
-	while (stacks[0][0] > mean)
+	mean = (stacks[0][0]) / 2 + 1;
+	while (stacks[0][0] >= mean)
 	{
 		if (stacks[0][1] <= mean)
 			push(stacks[1], stacks[0], "pb\n");

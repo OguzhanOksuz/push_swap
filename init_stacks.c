@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 19:00:31 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/05/04 20:12:20 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/05/04 23:25:34 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,13 +81,13 @@ void	sort_stack(int *stack)
 	while (++i <= stack[0])
 	{
 		j = 0;
-		while (++j <= stack[0])
+		while (++j < stack[0])
 		{
-			if (stack[i] < stack[j])
+			if (stack[j] > stack[j + 1])
 			{
-				tmp = stack[i];
-				stack[i] = stack[j];
-				stack[j] = tmp;
+				tmp = stack[j];
+				stack[j] = stack[j + 1];
+				stack[j + 1] = tmp;
 			}
 		}
 	}
@@ -104,13 +104,13 @@ int	**init_stacks(char **input)
 		return (NULL);
 	init_numbered(stacks, input);
 	sort_stack(stacks[2]);
-	i = 1;
-	while (i <= stacks[0][0])
+	i = 0;
+	while (++i <= stacks[0][0])
 	{
 		j = 1;
 		while (stacks[2][j] != stacks[0][i] && j <= stacks[2][0])
 			j++;
-		stacks[0][i++] = j;
+		stacks[0][i] = j;
 	}
 	return (stacks);
 }
