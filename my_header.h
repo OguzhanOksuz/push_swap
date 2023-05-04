@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:21:33 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/05/04 20:00:06 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/05/04 20:49:10 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,24 @@ char	*input_join(int ac, char **av);
 char	**ft_split(char *line, char ch);
 int		input_check(char **input);
 int		**init_stacks(char **input);
-#include <stdio.h>
+
+void	swap(int **stacks, char *str);
+void	rotate(int **stacks, char *str);
+void	rrotate(int **stacks, char *str);
+void	push(int *dst, int *src, char *str);
+
+int		get_index(int *stack, int num);
+int		next_way_to_mean(int *stacks, int mean);
+int		short_way(int *stack, int num);
+void	count_b(int **stacks);
+
+int		short_val(int *stack, int num);
+int		min_val(int *stack);
+int		max_val(int *stack);
+int		bigger_val(int *stack, int num);
+
+void	sort_little(int **stacks);
+void	sort_big(int **stacks);
+void	sort_all(int **stacks);
 
 #endif
