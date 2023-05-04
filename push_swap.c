@@ -6,11 +6,21 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:30:58 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/05/04 17:53:44 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/05/04 18:59:06 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "my_header.h"
+
+int	do_sort(char **inputs)
+{
+	int	**stacks;
+
+	stacks = init_stacks(inputs);
+	if (!inputs)
+		return (write(2, "Error\n", 6));
+	return (0);
+}
 
 int	push_swap(int ac, char **av)
 {
@@ -26,7 +36,7 @@ int	push_swap(int ac, char **av)
 	if (!inputs)
 		return (write(2, "Error\n", 6));
 	if (input_check(inputs) == 1)
-		write(2, "OK\n", 3);
+		do_sort(inputs);
 	else
 		write(2, "Error\n", 6);
 	i = 0;

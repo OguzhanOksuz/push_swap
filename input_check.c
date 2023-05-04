@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 17:45:18 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/05/04 18:34:36 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/05/04 18:43:40 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,27 @@ int	ft_strcmp(char *s1, char *s2)
 	while (s1[i] == s2[i] && s1[i] && s2[i])
 		i++;
 	return (s1[i] - s2[i]);
+}
+
+int	is_in_range(char *input)
+{
+	long long int	num;
+	int	np;
+	int	i;
+
+	num = 0;
+	i = 0;
+	np = 1;
+	if (input[i] == '-')
+		np = -1;
+	if (input[i] == '-' || input[i] == '+')
+		i++;
+	while (input[i] >= '0' && input[i] <= '9')
+		num = (10 * num) + (input[i++] - '0');
+	num *= np;
+	if (num > 2147483647 || num < -2147483648)
+		return (0);
+	return (1);
 }
 
 int	is_all_num(char	*input)
@@ -63,7 +84,7 @@ int	input_check(char **input)
 	i = 0;
 	while (input[i])
 	{
-		if (is_all_num(input[i]) == 0)
+		if (is_all_num(input[i]) == 0 || is_in_range(input[i]) == 0)
 			return (0);
 		i++;
 	}
