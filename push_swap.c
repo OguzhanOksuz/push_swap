@@ -6,19 +6,20 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:30:58 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/05/04 18:59:06 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/05/04 20:13:50 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "my_header.h"
 
-int	do_sort(char **inputs)
+int	do_sort(int **stacks)
 {
-	int	**stacks;
-
-	stacks = init_stacks(inputs);
-	if (!inputs)
+	if (!stacks)
 		return (write(2, "Error\n", 6));
+	free (stacks[0]);
+	free (stacks[1]);
+	free (stacks[2]);
+	free (stacks);
 	return (0);
 }
 
@@ -26,7 +27,7 @@ int	push_swap(int ac, char **av)
 {
 	char	*line;
 	char	**inputs;
-	int	i;
+	int		i;
 
 	line = input_join(ac, av);
 	if (!line)
@@ -36,7 +37,7 @@ int	push_swap(int ac, char **av)
 	if (!inputs)
 		return (write(2, "Error\n", 6));
 	if (input_check(inputs) == 1)
-		do_sort(inputs);
+		do_sort(init_stacks(inputs));
 	else
 		write(2, "Error\n", 6);
 	i = 0;
