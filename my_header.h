@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:21:33 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/05/04 16:00:24 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/05/04 17:50:46 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 char	*input_join(int ac, char **av);
 char	**ft_split(char *line, char ch);
+int	input_check(char **input);
 #include <stdio.h>
 
 #endif

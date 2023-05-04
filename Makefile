@@ -6,7 +6,8 @@ CFLAGS = -Wall -Wextra -Werror
 
 M_SRCS = push_swap.c	\
 	 input_join.c	\
-	 ft_split.c
+	 ft_split.c	\
+	 input_check.c
 
 M_OBJS = $(M_SRCS:.c=.o)
 

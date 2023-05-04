@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:30:58 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/05/04 17:26:27 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/05/04 17:53:44 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	push_swap(int ac, char **av)
 {
 	char	*line;
 	char	**inputs;
+	int	i;
 
 	line = input_join(ac, av);
 	if (!line)
@@ -25,11 +26,13 @@ int	push_swap(int ac, char **av)
 	if (!inputs)
 		return (write(2, "Error\n", 6));
 	if (input_check(inputs) == 1)
-		do_sort(inputs);
+		write(2, "OK\n", 3);
 	else
 		write(2, "Error\n", 6);
-	while (*inputs)
-		free(*inputs++);
+	i = 0;
+	while (inputs[i])
+		free(inputs[i++]);
+	free(inputs[i]);
 	free(inputs);
 	return (0);
 }
