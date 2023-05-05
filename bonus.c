@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 11:44:07 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/05/05 20:21:56 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/05/05 22:52:05 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,47 @@ int	is_sorted(int **stacks)
 	return (1);
 }
 
+char	**get_prompt(void)
+{
+	char	*rd;
+	char	*line;
+	char	**prompt;
+	int		flag;
+
+	line = NULL;
+	rd = (char *)malloc(sizeof(char) * 2);
+	if (!rd)
+		return (NULL);
+	flag = read(0, rd, 1);
+	rd[flag] = 0;
+	while (rd[0] && flag > 0)
+	{
+		line = ft_strjoin(line, rd);
+		flag = read(0, rd, 1);
+		if (flag < 0)
+			return (free(rd), free(line), NULL);
+		rd[flag] = 0;
+	}
+	free (rd);
+	prompt = ft_split(line, '\n');
+	free(line);
+	return (prompt);
+}
+
 int	do_prompt(int **stacks, char *p)
 {
 	int	rule_code;
 
 	rule_code = 0;
-	if (!scmp(p, "sa\n") || !scmp(p, "sb\n") || !scmp(p, "ss\n"))
+	if (!scmp(p, "sa") || !scmp(p, "sb") || !scmp(p, "ss"))
 		rule_code = 1;
-	else if (!scmp(p, "ra\n") || !scmp(p, "rb\n") || !scmp(p, "rr\n"))
+	else if (!scmp(p, "ra") || !scmp(p, "rb") || !scmp(p, "rr"))
 		rule_code = 2;
-	else if (!scmp(p, "rra\n") || !scmp(p, "rrb\n") || !scmp(p, "rrr\n"))
+	else if (!scmp(p, "rra") || !scmp(p, "rrb") || !scmp(p, "rrr"))
 		rule_code = 3;
-	else if (!scmp(p, "pa\n"))
+	else if (!scmp(p, "pa"))
 		rule_code = 4;
-	else if (!scmp(p, "pb\n"))
+	else if (!scmp(p, "pb"))
 		rule_code = 5;
 	p[0] = 0;
 	if (rule_code == 1)
@@ -55,30 +82,29 @@ int	do_prompt(int **stacks, char *p)
 	return (rule_code);
 }
 
-int	checker(int **stacks)
+int	checker(int **stacks, char **prompt)
 {
-	char	*promt;
 	int		valid;
+	int		i;
 
-	promt = get_next_line(0);
-	if (is_sorted(stacks) && promt)
-		write (1, "KO\n", 3);
-	else
+	i = 0;
+	while (prompt[i])
 	{
-		valid = 1;
-		while (promt && valid != 0)
+		valid = do_prompt(stacks, prompt[i++]);
+		if (!valid)
 		{
-			valid = do_prompt(stacks, promt);
-			free(promt);
-			promt = get_next_line(0);
-		}
-		if (is_sorted(stacks))
-			write(1, "OK\n", 3);
-		else
 			write(1, "KO\n", 3);
+			break ;
+		}
 	}
-	if (promt)
-		free(promt);
+	if (is_sorted(stacks))
+		write(1, "OK\n", 3);
+	else if (valid)
+		write(1, "KO\n", 3);
+	i = -1;
+	while (prompt[++i])
+		free(prompt[i]);
+	free(prompt);
 	free(stacks[0]);
 	return (free(stacks[1]), free(stacks[2]), free(stacks), 0);
 }
@@ -99,7 +125,7 @@ int	main(int ac, char **av)
 		if (!inputs)
 			return (write(2, "Error\n", 6));
 		if (input_check(inputs) == 1)
-			checker(init_stacks(inputs));
+			checker(init_stacks(inputs), get_prompt());
 		else
 			write(2, "Error\n", 6);
 		i = 0;
