@@ -30,8 +30,7 @@ B_SRCS = bonus.c		\
 	 init_stacks.c		\
 	 get_next_line_utils.c	\
 	 get_next_line.c	\
-	 rules.c		\
-	 do_promt.c
+	 rules.c
 
 B_OBJS = $(B_SRCS:.c=.o)
 

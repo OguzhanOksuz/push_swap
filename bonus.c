@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 11:44:07 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/05/05 13:02:14 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/05/05 13:11:33 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,41 +36,39 @@ int	sc(char *s1, char *s2)
 	return (s1[i] - s2[i]);
 }
 
-int	do_promt(int **stacsk, char *p)
+int	do_prompt(int **stacks, char *p)
 {
 	int	rule_code;
 
-	if (!sc(p, "sa\n") || !sc(p, "sb\n") || !sc(p, "ss\n"))
+	rule_code = 0;
+	if (!sc(p, "sa\n") || !sc(p, "sb\n") || !sc(p, "ss\n"))
 		rule_code = 1;
-	else if (!sc(p, "ra\n") || !sc(p, "rb\n") || !sc(p, "rr\n"))
+	else if (!sc(p, "ra\n") || !sc(p, "rb\n") || !sc(p, "rr\n"))
 		rule_code = 2;
-	else if (!sc(p, "rra\n") || !sc(p, "rrb\n") || !sc(p, "rrr\n"))
+	else if (!sc(p, "rra\n") || !sc(p, "rrb\n") || !sc(p, "rrr\n"))
 		rule_code = 3;
 	else if (!sc(p, "pa\n"))
 		rule_code = 4;
 	else if (!sc(p, "pb\n"))
 		rule_code = 5;
-	else
-		return (0);
 	p[0] = 0;
-	if (code == 1)
+	if (rule_code == 1)
 		swap(stacks, p);
-	else if (code == 2)
+	else if (rule_code == 2)
 		rotate(stacks, p);
-	else if (code == 3)
+	else if (rule_code == 3)
 		rrotate(stacks, p);
-	else if (code == 4)
-		push(stacks[0], stakcs[1] p);
-	else if (code == 5)
-		push(stacks[1], stakcs[0] p);
-	return (1);
+	else if (rule_code == 4)
+		push(stacks[0], stacks[1], p);
+	else if (rule_code == 5)
+		push(stacks[1], stacks[0], p);
+	return (free(p), rule_code);
 }
-
 
 int	checker(int **stacks)
 {
 	char	*promt;
-	int	valid;
+	int		valid;
 
 	promt = get_next_line(0);
 	if (is_sorted(stacks) && promt)
@@ -81,7 +79,6 @@ int	checker(int **stacks)
 		while (promt && valid)
 		{
 			valid = do_prompt(stacks, promt);
-			free(promt);
 			promt = get_next_line(0);
 		}
 		if (is_sorted(stacks) && promt)
@@ -89,7 +86,6 @@ int	checker(int **stacks)
 		else
 			write(1, "KO\n", 3);
 	}
-	free (promt);
 	free (stacks[0]);
 	free (stacks[1]);
 	free (stacks[2]);
