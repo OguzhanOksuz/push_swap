@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:21:33 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/05/04 20:49:10 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/05/05 13:00:50 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,12 @@ int		bigger_val(int *stack, int num);
 void	sort_little(int **stacks);
 void	sort_big(int **stacks);
 void	sort_all(int **stacks);
+
+
+int		ft_strlen(char *str);
+int		ft_strchr(const char *str, int c);
+char	*ft_strjoin(char *s1, char *s2);
+char	*get_next_line(int fd);
+int		do_prompt(int **stacks, char *promt);
 
 #endif

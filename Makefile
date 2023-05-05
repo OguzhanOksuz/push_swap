@@ -1,8 +1,12 @@
 M_NAME = push_swap
 
+B_NAME = checker
+
 CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
+
+#-------MANDATORY----------
 
 M_SRCS = push_swap.c	\
 	 input_join.c	\
@@ -17,16 +21,37 @@ M_SRCS = push_swap.c	\
 
 M_OBJS = $(M_SRCS:.c=.o)
 
-all: $(M_NAME)
+#-------BONUS----------
+
+B_SRCS = bonus.c		\
+	 input_join.c		\
+	 ft_split.c		\
+	 input_check.c		\
+	 init_stacks.c		\
+	 get_next_line_utils.c	\
+	 get_next_line.c	\
+	 rules.c		\
+	 do_promt.c
+
+B_OBJS = $(B_SRCS:.c=.o)
+
+#----------------------
+
+all: $(M_NAME) $(B_NAME)
 
 $(M_NAME): $(M_OBJS)
-	$(CC) $(CLFAGS) $(M_OBJS) -o $ $(M_NAME)
+	$(CC) $(CLFAGS) $(M_OBJS) -o $(M_NAME)
+
+$(B_NAME): $(B_OBJS)
+	$(CC) $(CFLAGS) $(B_OBJS) -o $(B_NAME)
 
 clean:
 	rm -rf $(M_OBJS)
+	rm -rf $(B_OBJS)
 
 fclean: clean
 	rm -rf $(M_NAME)
+	rm -rf $(B_NAME)
 
 re: fclean all
 
