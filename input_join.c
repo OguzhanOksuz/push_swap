@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 12:42:19 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/05/05 21:15:34 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/05/05 23:21:51 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,32 @@ int	ft_strlen(char *s1)
 	while (s1[len])
 		len++;
 	return (len);
+}
+
+char	*ft_strjoin(char *s1, char *s2)
+{
+	int		len;
+	int		i;
+	char	*rt;
+
+	if (!s1)
+	{
+		s1 = (char *)malloc(sizeof(char) * 1);
+		s1[0] = 0;
+	}
+	len = ft_strlen(s1) + ft_strlen(s2);
+	rt = (char *)malloc(sizeof(char) * (len + 1));
+	i = 0;
+	while (s1[i])
+	{
+		rt[i] = s1[i];
+		i++;
+	}
+	while (*s2)
+		rt[i++] = *s2++;
+	rt[i] = 0;
+	free(s1);
+	return (rt);
 }
 
 char	*ft_join(char *s1, char *s2, char ch)

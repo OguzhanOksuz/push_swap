@@ -28,15 +28,17 @@ B_SRCS = bonus.c		\
 	 ft_split.c		\
 	 input_check.c		\
 	 init_stacks.c		\
-	 get_next_line_utils.c	\
-	 get_next_line.c	\
 	 rules.c
 
 B_OBJS = $(B_SRCS:.c=.o)
 
 #----------------------
 
-all: $(M_NAME) $(B_NAME)
+mandatory: $(M_NAME)
+
+bonus: $(B_NAME)
+
+all: mandatory bonus
 
 $(M_NAME): $(M_OBJS)
 	$(CC) $(CLFAGS) $(M_OBJS) -o $(M_NAME)
@@ -54,4 +56,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus mandatory
