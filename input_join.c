@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 12:42:19 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/05/04 14:43:34 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/05/05 21:15:34 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_strlen(char *s1)
 	return (len);
 }
 
-char	*ft_join(char *s1, char *s2)
+char	*ft_join(char *s1, char *s2, char ch)
 {
 	char	*line;
 	int		len1;
@@ -39,7 +39,7 @@ char	*ft_join(char *s1, char *s2)
 	i = -1;
 	while (++i < len1)
 		line[i] = s1[i];
-	line[i] = ' ';
+	line[i] = ch;
 	free(s1);
 	i = -1;
 	while (++i < len2)
@@ -57,7 +57,7 @@ char	*input_join(int ac, char **av)
 	i = 1;
 	while (i < ac)
 	{
-		line = ft_join(line, av[i++]);
+		line = ft_join(line, av[i++], ' ');
 		if (!line)
 			exit(write(2, "Error\n", 6) - 5);
 	}
