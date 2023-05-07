@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 11:44:07 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/05/07 16:24:07 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/05/07 17:41:31 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	free_stacks(int **stacks)
 	free(stacks);
 }
 
-int	is_sorted(int **stacks)
+int	is_stacks_sorted(int **stacks)
 {
 	int	i;
 
@@ -105,7 +105,7 @@ void	checker(int **stacks, char **prompt)
 		if (prompt)
 			while (prompt[i] && valid)
 				valid = do_prompt(stacks, prompt[i++]);
-		if (valid == 0 || is_sorted(stacks) == 0)
+		if (valid == 0 || is_stacks_sorted(stacks) == 0)
 			write(1, "KO\n", 3);
 		else
 			write(1, "OK\n", 3);

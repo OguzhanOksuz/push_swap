@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:30:58 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/05/07 12:25:39 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/05/07 17:42:16 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ int	do_sort(int **stacks)
 {
 	if (!stacks)
 		return (write(2, "Error\n", 6));
-	sort_all(stacks);
+	if (is_sorted(stacks[0]) != 1)
+		sort_all(stacks);
 	free (stacks[0]);
 	free (stacks[1]);
 	free (stacks[2]);

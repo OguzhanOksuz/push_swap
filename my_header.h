@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:21:33 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/05/07 14:26:27 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/05/07 17:40:01 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ char	*input_join(int ac, char **av);
 char	**ft_split(char *line, char ch);
 int		input_check(char **input);
 int		**init_stacks(char **input);
+int		is_sorted(int *stacks);
 
 void	swap(int **stacks, char *str);
 void	rotate(int **stacks, char *str);
