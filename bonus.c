@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 11:44:07 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/05/05 23:19:41 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/05/07 08:48:09 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int	checker(int **stacks, char **prompt)
 			break ;
 		}
 	}
-	if (is_sorted(stacks))
+	if (is_sorted(stacks) && valid)
 		write(1, "OK\n", 3);
 	else if (valid)
 		write(1, "KO\n", 3);
