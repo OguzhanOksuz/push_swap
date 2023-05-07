@@ -9,26 +9,27 @@ CFLAGS = -Wall -Wextra -Werror
 #-------MANDATORY----------
 
 M_SRCS = push_swap.c	\
-	 input_join.c	\
-	 ft_split.c	\
-	 input_check.c	\
-	 init_stacks.c	\
-	 rules.c	\
-	 counters.c	\
-	 calculations.c	\
-	 sort_big.c	\
-	 sort_engine.c
+		 input_join.c	\
+		 ft_split.c		\
+		 input_check.c	\
+		 init_stacks.c	\
+		 rules.c		\
+		 counters.c		\
+		 calculations.c	\
+		 sort_big.c		\
+		 sort_engine.c
 
 M_OBJS = $(M_SRCS:.c=.o)
 
 #-------BONUS----------
 
-B_SRCS = bonus.c		\
-	 input_join.c		\
-	 ft_split.c		\
-	 input_check.c		\
-	 init_stacks.c		\
-	 rules.c
+B_SRCS = push_swap_bonus.c		\
+		 checker.c				\
+		 input_join.c			\
+		 ft_split.c				\
+		 input_check.c			\
+		 init_stacks.c			\
+		 rules.c
 
 B_OBJS = $(B_SRCS:.c=.o)
 

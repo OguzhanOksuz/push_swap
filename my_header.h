@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:21:33 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/05/05 23:22:36 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/05/07 14:26:27 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	sort_all(int **stacks);
 
 int		scmp(char *s1, char *s2);
 char	*ft_strjoin(char *s1, char *s2);
-char	*ft_join(char *s1, char *s2, char ch);
-char	*get_next_line(int fd);
+char	**get_prompt(void);
+void	checker(int **stacks, char **prompt);
 
 #endif

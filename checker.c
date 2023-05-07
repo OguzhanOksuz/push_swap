@@ -1,16 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bonus.c                                            :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 11:44:07 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/05/07 08:48:09 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/05/07 16:24:07 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "my_header.h"
+
+void	free_stacks(int **stacks)
+{
+	if (!stacks)
+		return ;
+	free(stacks[0]);
+	free(stacks[1]);
+	free(stacks[2]);
+	free(stacks);
+}
 
 int	is_sorted(int **stacks)
 {
@@ -18,11 +28,13 @@ int	is_sorted(int **stacks)
 
 	if (stacks[1][0] != 0)
 		return (0);
-	i = 0;
-	if (stacks[0][0] > 0)
-		while (++i + 1 <= stacks[0][0])
-			if (stacks[0][i + 1] < stacks[0][i])
-				return (0);
+	i = 1;
+	while (i + 1 <= stacks[0][0])
+	{
+		if (stacks[0][i] > stacks[0][i + 1])
+			return (0);
+		i++;
+	}
 	return (1);
 }
 
@@ -33,19 +45,18 @@ char	**get_prompt(void)
 	char	**prompt;
 	int		flag;
 
+	flag = 1;
 	line = NULL;
 	rd = (char *)malloc(sizeof(char) * 2);
 	if (!rd)
 		return (NULL);
-	flag = read(0, rd, 1);
-	rd[flag] = 0;
-	while (rd[0] && flag > 0)
+	while (flag > 0)
 	{
-		line = ft_strjoin(line, rd);
 		flag = read(0, rd, 1);
 		if (flag < 0)
 			return (free(rd), free(line), NULL);
 		rd[flag] = 0;
+		line = ft_strjoin(line, rd);
 	}
 	free (rd);
 	prompt = ft_split(line, '\n');
@@ -82,57 +93,24 @@ int	do_prompt(int **stacks, char *p)
 	return (rule_code);
 }
 
-int	checker(int **stacks, char **prompt)
+void	checker(int **stacks, char **prompt)
 {
-	int		valid;
-	int		i;
+	int	i;
+	int	valid;
 
+	valid = 1;
 	i = 0;
-	while (prompt[i])
+	if (stacks)
 	{
-		valid = do_prompt(stacks, prompt[i++]);
-		if (!valid)
-		{
+		if (prompt)
+			while (prompt[i] && valid)
+				valid = do_prompt(stacks, prompt[i++]);
+		if (valid == 0 || is_sorted(stacks) == 0)
 			write(1, "KO\n", 3);
-			break ;
-		}
-	}
-	if (is_sorted(stacks) && valid)
-		write(1, "OK\n", 3);
-	else if (valid)
-		write(1, "KO\n", 3);
-	i = -1;
-	while (prompt[++i])
-		free(prompt[i]);
-	free(prompt);
-	free(stacks[0]);
-	return (free(stacks[1]), free(stacks[2]), free(stacks), 0);
-}
-
-int	main(int ac, char **av)
-{
-	char	*line;
-	char	**inputs;
-	int		i;
-
-	if (ac != 1)
-	{
-		line = input_join(ac, av);
-		if (!line)
-			return (write(2, "Error\n", 6));
-		inputs = ft_split(line, ' ');
-		free(line);
-		if (!inputs)
-			return (write(2, "Error\n", 6));
-		if (input_check(inputs) == 1)
-			checker(init_stacks(inputs), get_prompt());
 		else
-			write(2, "Error\n", 6);
-		i = 0;
-		while (inputs[i])
-			free(inputs[i++]);
-		free(inputs[i]);
-		free(inputs);
+			write(1, "OK\n", 3);
+		free_stacks(stacks);
 	}
-	return (0);
+	else
+		write(2, "Error\n", 6);
 }
