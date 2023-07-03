@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 11:44:07 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/07/03 21:17:52 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/07/03 22:49:33 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,15 +76,17 @@ void	checker(int **stacks, char **prompt)
 	i = 0;
 	if (stacks)
 	{
+		if (!prompt)
+			valid = 0;
 		if (prompt)
 			while (prompt[i] && valid)
 				valid = do_prompt(stacks, prompt[i++]);
 		if (valid == 0)
 			write(2, "Error\n", 6);
-		else if (is_stacks_sorted(stacks) == 0)
-			write(1, "KO\n", 3);
-		else
+		else if (is_stacks_sorted(stacks) == 1)
 			write(1, "OK\n", 3);
+		else
+			write(1, "KO\n", 3);
 		free_stacks(stacks);
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 12:32:10 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/07/03 21:49:22 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/07/03 22:49:52 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,15 @@ int	check_prompt(char *line)
 			j++;
 		else
 		{
-			if (j < 2 || j > 4)
+			if (j < 2 || j >= 5)
 				return (0);
-			else
-				j = 0;
+			j = 0;
 		}
 		i++;
 	}
-	if (line[i - 1] != '\n')
-		return (0);
+	if (i != 0)
+		if (line[i - 1] != '\n')
+			return (0);
 	return (1);
 }
 
