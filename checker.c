@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 11:44:07 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/05/07 18:02:21 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/07/03 21:17:52 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,32 +36,6 @@ int	is_stacks_sorted(int **stacks)
 		i++;
 	}
 	return (1);
-}
-
-char	**get_prompt(void)
-{
-	char	*rd;
-	char	*line;
-	char	**prompt;
-	int		flag;
-
-	flag = 1;
-	line = NULL;
-	rd = (char *)malloc(sizeof(char) * 2);
-	if (!rd)
-		return (NULL);
-	while (flag > 0)
-	{
-		flag = read(0, rd, 1);
-		if (flag < 0)
-			return (free(rd), free(line), NULL);
-		rd[flag] = 0;
-		line = ft_strjoin(line, rd);
-	}
-	free (rd);
-	prompt = ft_split(line, '\n');
-	free(line);
-	return (prompt);
 }
 
 int	do_prompt(int **stacks, char *p)

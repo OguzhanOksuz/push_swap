@@ -6,7 +6,7 @@
 /*   By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 12:32:10 by ooksuz            #+#    #+#             */
-/*   Updated: 2023/05/07 16:46:20 by ooksuz           ###   ########.fr       */
+/*   Updated: 2023/07/03 21:49:22 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,59 @@ void	my_free(char **arr)
 	while (arr[i])
 		free(arr[i++]);
 	free(arr);
+}
+
+int	check_prompt(char *line)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (line[i])
+	{
+		if (line[i] != '\n')
+			j++;
+		else
+		{
+			if (j < 2 || j > 4)
+				return (0);
+			else
+				j = 0;
+		}
+		i++;
+	}
+	if (line[i - 1] != '\n')
+		return (0);
+	return (1);
+}
+
+char	**get_prompt(void)
+{
+	char	*rd;
+	char	*line;
+	char	**prompt;
+	int		flag;
+
+	prompt = NULL;
+	flag = 1;
+	line = NULL;
+	rd = (char *)malloc(sizeof(char) * 2);
+	if (!rd)
+		return (NULL);
+	while (flag > 0)
+	{
+		flag = read(0, rd, 1);
+		if (flag < 0)
+			return (free(rd), free(line), NULL);
+		rd[flag] = 0;
+		line = ft_strjoin(line, rd);
+	}
+	free (rd);
+	if (check_prompt(line) == 1)
+		prompt = ft_split(line, '\n');
+	free(line);
+	return (prompt);
 }
 
 int	init_checker(int ac, char **av)
